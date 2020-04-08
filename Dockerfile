@@ -20,7 +20,7 @@ COPY velero-plugin-for-aws velero-plugin-for-aws
 RUN CGO_ENABLED=0 GOOS=linux go build -v -o /go/bin/velero-plugin-for-aws ./velero-plugin-for-aws
 
 
-FROM ubuntu:bionic
+FROM ubuntu:eoan
 RUN mkdir /plugins
 COPY --from=build /go/bin/velero-plugin-for-aws /plugins/
 USER nobody:nogroup
